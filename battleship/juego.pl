@@ -185,8 +185,10 @@ ciclo_juego :-
     mostrar_tablero_oculto(T),
     
     % Validación estricta de coordenadas por teclado
-    writeln('Ingresa la Fila (0-4):'), read(Fila),
-    writeln('Ingresa la Columna (0-4):'), read(Columna),
+    writeln('Ingresa la Fila (0-4):'), 
+    read_line_to_string(user_input, S_Fila), number_string(Fila, S_Fila),
+    writeln('Ingresa la Columna (0-4):'), 
+    read_line_to_string(user_input, S_Col), number_string(Columna, S_Col),
     
     (Fila >= 0, Fila =< 4, Columna >= 0, Columna =< 4 ->
         retract(tablero_computadora(T)),
